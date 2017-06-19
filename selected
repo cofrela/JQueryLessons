@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Select</title>
+<style>
+.xxx-content {
+    display: none;
+}
+.xxx-content.active {
+    display: block; 
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<select id="fff">
+    <option class="active">1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+</select>
+
+<div id="xxx">
+        <div class="xxx-content active">
+            <div id="1">uno</div>
+        </div>
+        <div class="xxx-content">
+            <div id="2">dos</div>
+        </div>
+        <div class="xxx-content">
+            <div id="3">tres</div>
+        </div>
+        <div class="xxx-content">
+            <div id="4">cuatro</div>
+        </div>
+        <div class="xxx-content">
+            <div id="5">cinco</div>
+        </div>
+        <div class="xxx-content">
+            <div id="6">seis</div>
+        </div>
+        <div class="xxx-content">
+            <div id="7">siete</div>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+    $("#fff").change(function () {
+        var i = $("#fff option:selected").index();
+        $("#fff option.active").removeClass("active");
+        $("#xxx .active").hide().removeClass("active");
+        $($("#fff option:selected")).addClass("active");
+        $($("#xxx").children(".xxx-content")[i]).fadeIn(100).addClass("active");
+    });
+</script>
+
+</html>
